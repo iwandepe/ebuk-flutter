@@ -19,9 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Routing with improvements by using implicite route model binding
 Route::get('books', [BookController::class, 'index']);
-Route::get('book/{book}', [BookController::class, 'show']);
-Route::post('book', [BookController::class, 'store']);
-Route::put('book/{book}', [BookController::class, 'update']);
-Route::delete('book/{book}', [BookController::class, 'delete']);
+Route::get('books/{id}', [BookController::class, 'show']);
+Route::post('books', [BookController::class, 'store']);
+Route::put('books/{id}', [BookController::class, 'update']);
+Route::delete('books/{id}', [BookController::class, 'delete']);

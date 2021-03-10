@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use Database\Seeders\BooksTableSeeder;
 use Illuminate\Http\Request;
 
 
@@ -10,31 +11,32 @@ class BookController extends Controller
 {
     public function index()
     {
-        return response()->json(Book::all());
+        return Book::all();
     }
 
-    public function show(Book $book)
+    public function show($id)
     {
-        return $book;
+        return Book::find($id);
     }
 
     public function store(Request $request)
     {
-        $book = Book::create($request->all());
-        return response()->json($book, 201);
+        return Book::create($request->all());
     }
 
-    public function update(Request $request, Book $book)
+    public function update(Request $request, $id)
     {
+        $book = Book::findOrFail($id);
         $book->update($request->all());
 
-        return response()->json($book, 200);
+        return $book;
     }
 
     public function delete(Request $request, Book $book)
     {
+        $book = Book::findOrFail($id);
         $book->delete();
 
-        return response()->json(null, 204);
+        return 204;
     }
 }
