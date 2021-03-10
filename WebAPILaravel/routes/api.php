@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Book;
+use App\Http\Controllers\BookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,8 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 // Routing with improvements by using implicite route model binding
-Route::get('books', 'BookController@index');
-Route::get('book/{book}', 'BookController@show');
-Route::post('book', 'BookController@store');
-Route::put('book/{book}', 'BookController@update');
-Route::delete('book/{book}', 'BookController@delete');
+Route::get('books', [BookController::class, 'index']);
+Route::get('book/{book}', [BookController::class, 'show']);
+Route::post('book', [BookController::class, 'store']);
+Route::put('book/{book}', [BookController::class, 'update']);
+Route::delete('book/{book}', [BookController::class, 'delete']);

@@ -24,7 +24,7 @@ class BooksTableSeeder extends Seeder
             Book::create([
                 'title' => $faker->sentence,
                 'author' => $faker->name,
-                'category' => $faker->name,
+                'category' => $faker->sentence,
                 'price' => $faker->randomDigit,
                 'linkToImage' => $faker->sentence,
                 'description' => $faker->sentence,

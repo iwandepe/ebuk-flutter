@@ -10,7 +10,7 @@ class BookController extends Controller
 {
     public function index()
     {
-        return Book::all();
+        return response()->json(Book::all());
     }
 
     public function show(Book $book)
@@ -21,7 +21,6 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $book = Book::create($request->all());
-
         return response()->json($book, 201);
     }
 
