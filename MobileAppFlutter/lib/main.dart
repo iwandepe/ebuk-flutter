@@ -1,7 +1,9 @@
+import 'package:ebuk_app/views/pages/dashboard.dart';
+import 'package:ebuk_app/views/pages/library/bookslibrary.dart';
 import 'package:flutter/material.dart';
 
-import 'package:ebuk_app/views/register_view.dart';
-import 'package:ebuk_app/views/login_view.dart';
+import 'package:ebuk_app/views/pages/register.dart';
+import 'package:ebuk_app/views/pages/login.dart';
 
 void main() => runApp(EbukApp());
 
@@ -16,8 +18,10 @@ class EbukApp extends StatelessWidget {
       ),
       initialRoute: '/login',
       routes: {
+        '/dashboard' : (context) => Dashboard(),
         '/login': (context) => Login(),
-        '/register': (context) => Register()
+        '/register': (context) => Register(),
+        '/bookslibrary': (context) => BooksLibrary()
       },
       home: Login(),
       debugShowCheckedModeBanner: false,

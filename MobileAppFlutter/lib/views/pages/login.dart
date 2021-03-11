@@ -1,5 +1,5 @@
-import 'package:ebuk_app/widgets/auth_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:ebuk_app/views/widgets/auth_text_form_field.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -57,7 +57,9 @@ class _LoginState extends State<Login> {
               "SIGN IN",
               style: Theme.of(context).textTheme.button,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/dashboard');
+            },
           ),
 
           // Expanded to hold question linking to sign up page

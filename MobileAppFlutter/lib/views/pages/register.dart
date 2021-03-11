@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ebuk_app/widgets/auth_text_form_field.dart';
+import 'package:ebuk_app/views/widgets/auth_text_form_field.dart';
 
 class Register extends StatefulWidget {
   @override
