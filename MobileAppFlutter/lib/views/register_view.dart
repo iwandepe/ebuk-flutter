@@ -1,12 +1,12 @@
-import 'package:ebuk_app/widgets/auth_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:ebuk_app/widgets/auth_text_form_field.dart';
 
-class Login extends StatefulWidget {
+class Register extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _LoginState extends State<Login> {
+class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +27,7 @@ class _LoginState extends State<Login> {
           // Expanded to hold welcome text
           Expanded(
             child: Text(
-              "WELCOME",
+              "REGISTER",
               style: Theme.of(context).textTheme.headline3,
             ),
           ),
@@ -38,6 +38,10 @@ class _LoginState extends State<Login> {
               padding: EdgeInsets.all(10),
               child: Column(
                 children: [
+                  AuthTextFormField(
+                    labelText: "Name",
+                    errorText: "Name cannot be empty",
+                  ),
                   AuthTextFormField(
                     labelText: "Email",
                     errorText: "Email cannot be empty",
@@ -54,7 +58,7 @@ class _LoginState extends State<Login> {
           // Flat Button to submit form
           FlatButton(
             child: Text(
-              "SIGN IN",
+              "REGISTER",
               style: Theme.of(context).textTheme.button,
             ),
             onPressed: () {},
@@ -65,15 +69,17 @@ class _LoginState extends State<Login> {
             child: Column(
               children: [
                 Text(
-                  "Dont have an account?",
+                  "Already have an account?",
                   style: Theme.of(context).textTheme.subtitle1,
                 ),
                 InkWell(
                   child: Text(
-                    "Create new account",
+                    "Login",
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    
+                  },
                 ),
               ],
             ),

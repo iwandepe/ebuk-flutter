@@ -1,5 +1,7 @@
-import 'package:ebuk_app/views/login_view.dart';
 import 'package:flutter/material.dart';
+
+import 'package:ebuk_app/views/register_view.dart';
+import 'package:ebuk_app/views/login_view.dart';
 
 void main() => runApp(EbukApp());
 
