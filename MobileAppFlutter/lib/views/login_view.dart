@@ -11,9 +11,11 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       // Scroll View to prevent bottom overflow when the keyboard comes out
-      body: SingleChildScrollView(
-        child: Column(
+      resizeToAvoidBottomInset: false,
+      body: Column(
           children: [
+            SizedBox(height: MediaQuery.of(context).size.height*0.075),
+
             // Expanded to hold app logo
             Expanded(
               child: Text(
@@ -26,14 +28,15 @@ class _LoginState extends State<Login> {
             Expanded(
               child: Text(
                 "WELCOME",
-                style: Theme.of(context).textTheme.headline1,
+                style: Theme.of(context).textTheme.headline3,
               ),
             ),
 
             // Expanded to hold log in process widgets
             Expanded(
               child: Container(
-                child: ListView(
+                padding: EdgeInsets.all(10),
+                child: Column(
                   children: [
                     AuthTextFormField(
                       labelText: "Email",
@@ -77,7 +80,6 @@ class _LoginState extends State<Login> {
             )
           ],
         ),
-      ),
     );
   }
 }

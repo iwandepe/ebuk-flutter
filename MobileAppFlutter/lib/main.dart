@@ -13,6 +13,7 @@ class EbukApp extends StatelessWidget {
         backgroundColor: Color(0xFFFFFFFF),
       ),
       home: Login(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
