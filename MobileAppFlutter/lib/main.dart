@@ -14,6 +14,11 @@ class EbukApp extends StatelessWidget {
         primaryColor: Color(0xFF87B910),
         backgroundColor: Color(0xFFFFFFFF),
       ),
+      initialRoute: '/login',
+      routes: {
+        '/login': (context) => Login(),
+        '/register': (context) => Register()
+      },
       home: Login(),
       debugShowCheckedModeBanner: false,
     );

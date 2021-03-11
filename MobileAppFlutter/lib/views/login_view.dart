@@ -73,7 +73,9 @@ class _LoginState extends State<Login> {
                     "Create new account",
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, '/register');
+                  },
                 ),
               ],
             ),
