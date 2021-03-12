@@ -17,7 +17,7 @@ class Dashboard extends StatelessWidget {
                   child: Text('Book Library'),
                 ),
                 onTap: () {
-                  Navigator.pushNamed(context, '/bookslibrary');
+                  Navigator.pushNamed(context, '/library');
                 },
               ),
             ),
