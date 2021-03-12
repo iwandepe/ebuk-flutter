@@ -1,3 +1,4 @@
+import 'package:ebuk_app/services/service_locator.dart';
 import 'package:ebuk_app/views/pages/dashboard.dart';
 import 'package:ebuk_app/views/pages/library/bookslibrary.dart';
 import 'package:flutter/material.dart';
@@ -5,7 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:ebuk_app/views/pages/register.dart';
 import 'package:ebuk_app/views/pages/login.dart';
 
-void main() => runApp(EbukApp());
+void main() {
+  setupLocator();
+  runApp(EbukApp());
+}
 
 class EbukApp extends StatelessWidget {
   @override

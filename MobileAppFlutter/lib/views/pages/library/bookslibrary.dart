@@ -1,5 +1,8 @@
+import 'package:ebuk_app/services/service_locator.dart';
+import 'package:ebuk_app/viewmodel/library_view_model.dart';
 import 'package:ebuk_app/views/pages/library/panel.dart';
 import 'package:flutter/material.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 class BooksLibrary extends StatefulWidget {
   @override
@@ -9,25 +12,28 @@ class BooksLibrary extends StatefulWidget {
 class _BooksLibraryState extends State<BooksLibrary> {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 3,
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('Books Library'),
-          bottom: TabBar(
-            tabs: [
-              Text('1'),
-              Text('2'),
-              Text('3')
+    return ScopedModel<LibraryViewModel>(
+      model: locator<LibraryViewModel>(),
+      child: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text('Books Library'),
+            bottom: TabBar(
+              tabs: [
+                Text('1'),
+                Text('2'),
+                Text('3')
+              ],
+            ),
+          ),
+          body: TabBarView(
+            children: [
+              Panel(),
+              Panel(),
+              Panel()
             ],
           ),
-        ),
-        body: TabBarView(
-          children: [
-            Panel(),
-            Panel(),
-            Panel()
-          ],
         ),
       ),
     );
