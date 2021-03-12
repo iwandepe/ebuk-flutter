@@ -1,5 +1,5 @@
 import 'package:ebuk_app/views/pages/dashboard.dart';
-import 'package:ebuk_app/views/pages/library/bookslibrary.dart';
+import 'package:ebuk_app/views/pages/library/library.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ebuk_app/views/pages/register.dart';
@@ -23,7 +23,7 @@ class EbukApp extends StatelessWidget {
         '/dashboard' : (context) => Dashboard(),
         '/login': (context) => Login(),
         '/register': (context) => Register(),
-        '/bookslibrary': (context) => BooksLibrary()
+        '/library': (context) => Library()
       },
       home: Login(),
       debugShowCheckedModeBanner: false,

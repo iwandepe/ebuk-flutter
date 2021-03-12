@@ -1,12 +1,12 @@
 import 'package:ebuk_app/views/pages/library/panel.dart';
 import 'package:flutter/material.dart';
 
-class BooksLibrary extends StatefulWidget {
+class Library extends StatefulWidget {
   @override
-  _BooksLibraryState createState() => _BooksLibraryState();
+  _LibraryState createState() => _LibraryState();
 }
 
-class _BooksLibraryState extends State<BooksLibrary> {
+class _LibraryState extends State<Library> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
