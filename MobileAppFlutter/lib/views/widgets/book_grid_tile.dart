@@ -6,16 +6,22 @@ class BookGridTile extends StatelessWidget {
   final String author;
   final String thumbnailUrl;
 
-  BookGridTile({@required this.title, @required this.author, this.thumbnailUrl});
+  BookGridTile(
+      {@required this.title, @required this.author, this.thumbnailUrl});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(child: Image.network(noImageLinks)),
-        Expanded(child: Text(title)),
-        Expanded(child: Text(author)),
-      ],
+    return InkWell(
+      onTap: () {
+        Navigator.pushNamed(context, '/detail');
+      },
+      child: Column(
+        children: [
+          Expanded(child: Image.network(noImageLinks)),
+          Expanded(child: Text(title)),
+          Expanded(child: Text(author)),
+        ],
+      ),
     );
   }
 }
