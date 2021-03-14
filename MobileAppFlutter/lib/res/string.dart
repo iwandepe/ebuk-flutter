@@ -1,0 +1,1 @@
+const noImageLinks = "https://images-na.ssl-images-amazon.com/images/I/51N3aBWzwdL.jpg";

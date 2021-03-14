@@ -1,11 +1,14 @@
+import 'package:ebuk_app/models/book.dart';
+import 'package:ebuk_app/res/string.dart';
 import 'package:ebuk_app/services/service_api.dart';
+import 'package:ebuk_app/views/widgets/book_grid_tile.dart';
 import 'package:flutter/material.dart';
 
 class Panel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List<String>>(
-      future: getBookIds(),
+    return FutureBuilder<List<Book>>(
+      future: fetchBookByCategory(),
       builder: (context, snapshot) {
         if (!snapshot.hasData)
           return Center(child: CircularProgressIndicator());
@@ -13,7 +16,14 @@ class Panel extends StatelessWidget {
         return GridView.count(
           crossAxisCount: 3,
           children: snapshot.data
-          .map((data) => Text(data)).toList(),
+              .map((data) => BookGridTile(
+                    author: data.author,
+                    title: data.title,
+                    thumbnailUrl: data.thumbnailUrl != null
+                        ? data.thumbnailUrl
+                        : noImageLinks,
+                  ))
+              .toList(),
         );
       },
     );
