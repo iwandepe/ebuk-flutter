@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 String _apiKey = "AIzaSyDq51l2xaQFgsvWiP8ubYyy-x3jYQGL-mM";
 
 Future<List<Book>> fetchBookByCategory() async {
-  var url =
+  var url = 
       "https://www.googleapis.com/books/v1/volumes?q=harry+potter+inauthor:rowling&key=AIzaSyDq51l2xaQFgsvWiP8ubYyy-x3jYQGL-mM";
   var response = await http.get(url);
 
@@ -19,7 +19,7 @@ Future<List<Book>> fetchBookByCategory() async {
 }
 
 Future<BookDetail> fetchBookById() async {
-  var url =
+  var url = 
       "https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC?key=AIzaSyDq51l2xaQFgsvWiP8ubYyy-x3jYQGL-mM";
   var response = await http.get(url);
 

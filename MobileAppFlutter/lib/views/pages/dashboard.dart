@@ -25,8 +25,13 @@ class Dashboard extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.1,
             ),
             Expanded(
-              child: Container(
-                child: Text('Book Store'),
+              child: InkWell(
+                child: Container(
+                  child: Text('Book Store'),
+                ),
+                onTap: () {
+                  Navigator.pushNamed(context, '/edit');
+                },
               ),
             ),
           ],
