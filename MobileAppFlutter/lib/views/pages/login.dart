@@ -12,77 +12,84 @@ class _LoginState extends State<Login> {
     return Scaffold(
       // Scroll View to prevent bottom overflow when the keyboard comes out
       resizeToAvoidBottomInset: false,
-      body: Column(
-        children: [
-          SizedBox(height: MediaQuery.of(context).size.height*0.075),
-
-          // Expanded to hold app logo
-          Expanded(
-            child: Text(
-              "ebuk",
-              style: Theme.of(context).textTheme.headline1,
-            ),
-          ),
-
-          // Expanded to hold welcome text
-          Expanded(
-            child: Text(
-              "WELCOME",
-              style: Theme.of(context).textTheme.headline3,
-            ),
-          ),
-
-          // Expanded to hold log in process widgets
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  AuthTextFormField(
-                    labelText: "Email",
-                    errorText: "Email cannot be empty",
-                  ),
-                  AuthTextFormField(
-                    labelText: "Password",
-                    errorText: "Password cannot be empty",
-                  ),
-                ],
+      body: Container(
+        height: double.infinity,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              // Expanded to hold app logo
+              Text(
+                "ebuk",
+                style: Theme.of(context).textTheme.headline1,
               ),
-            ),
-          ),
 
-          // Flat Button to submit form
-          FlatButton(
-            child: Text(
-              "SIGN IN",
-              style: Theme.of(context).textTheme.button,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/dashboard');
-            },
-          ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.4,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    // Expanded to hold welcome text
+                    Text(
+                      "WELCOME",
+                      style: Theme.of(context).textTheme.headline4,
+                    ),
 
-          // Expanded to hold question linking to sign up page
-          Expanded(
-            child: Column(
-              children: [
-                Text(
-                  "Dont have an account?",
-                  style: Theme.of(context).textTheme.subtitle1,
+                    Column(
+                      children: [
+                        AuthTextFormField(
+                          labelText: "Email",
+                          errorText: "Email cannot be empty",
+                        ),
+                        SizedBox(height: 1),
+                        AuthTextFormField(
+                          labelText: "Password",
+                          errorText: "Password cannot be empty",
+                        ),
+                      ],
+                    ),
+
+                    FlatButton(
+                      height: 50,
+                      minWidth: MediaQuery.of(context).size.width * 0.8,
+                      color: Colors.greenAccent,
+                      child: Text(
+                        "SIGN IN",
+                        style: Theme.of(context).textTheme.button,
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/dashboard');
+                      },
+                    ),
+                  ],
                 ),
-                InkWell(
-                  child: Text(
-                    "Create new account",
+              ),
+
+              SizedBox(
+                height: 20,
+              ),
+
+              // Expanded to hold question linking to sign up page
+              Column(
+                children: [
+                  Text(
+                    "Dont have an account?",
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
-                  onTap: () {
-                    Navigator.pushNamed(context, '/register');
-                  },
-                ),
-              ],
-            ),
-          )
-        ],
+                  InkWell(
+                    child: Text(
+                      "Create new account",
+                      style: Theme.of(context).textTheme.subtitle2,
+                    ),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/register');
+                    },
+                  ),
+                ],
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

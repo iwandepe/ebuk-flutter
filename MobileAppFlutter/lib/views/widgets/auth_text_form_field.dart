@@ -8,13 +8,15 @@ class AuthTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: TextFormField(
-        style: Theme.of(context).textTheme.bodyText1,
-        decoration: InputDecoration(
-          labelText: labelText,
+    return Container(
+        decoration: BoxDecoration(border: Border.all()),
+        width: MediaQuery.of(context).size.width*0.8,
+        child: TextFormField(
+          style: Theme.of(context).textTheme.bodyText1,
+          decoration: InputDecoration(
+            labelText: labelText,
+          ),
         ),
-      ),
     );
   }
 }
