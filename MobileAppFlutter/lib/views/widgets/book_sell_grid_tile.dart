@@ -21,20 +21,17 @@ class BookSellGridTile extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.all(3),
         color: Colors.greenAccent,
-        child: AspectRatio(
-          aspectRatio: 0.5,
-          child: Column(
-            children: [
-              Expanded(child: Image.network(noImageLinks)),
-              Container(
-                margin: EdgeInsets.only(top: 10, bottom: 5),
-                child: Text(
-                  bookSell.title,
-                  style: Theme.of(context).textTheme.subtitle2,
-                ),
+        child: Column(
+          children: [
+            Expanded(child: Image.network(noImageLinks)),
+            Container(
+              margin: EdgeInsets.only(top: 10, bottom: 5),
+              child: Text(
+                bookSell.title,
+                style: Theme.of(context).textTheme.subtitle2,
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

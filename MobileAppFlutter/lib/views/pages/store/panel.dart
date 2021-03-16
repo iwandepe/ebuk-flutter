@@ -13,7 +13,8 @@ class Panel extends StatelessWidget {
           return Center(child: CircularProgressIndicator());
 
         return GridView.count(
-          crossAxisCount: 2,
+          crossAxisCount: 3,
+          childAspectRatio: 0.7,
           children:
               snapshot.data.map((data) => BookSellGridTile(bookSell: data,)).toList(),
         );

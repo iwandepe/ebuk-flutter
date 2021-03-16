@@ -15,9 +15,9 @@ class Panel extends StatelessWidget {
 
         return GridView.count(
           crossAxisCount: 3,
+          childAspectRatio: 0.7,
           children: snapshot.data
               .map((data) => BookGridTile(
-                    author: data.author,
                     title: data.title,
                     thumbnailUrl: data.thumbnailUrl != null
                         ? data.thumbnailUrl

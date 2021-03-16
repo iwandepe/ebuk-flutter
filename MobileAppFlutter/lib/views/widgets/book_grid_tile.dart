@@ -4,11 +4,10 @@ import 'package:flutter/material.dart';
 
 class BookGridTile extends StatelessWidget {
   final String title;
-  final String author;
   final String thumbnailUrl;
 
   BookGridTile(
-      {@required this.title, @required this.author, this.thumbnailUrl});
+      {@required this.title, this.thumbnailUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +18,19 @@ class BookGridTile extends StatelessWidget {
           MaterialPageRoute(builder: (context) => BookDetailPage()),
         );
       },
-      child: Column(
-        children: [
-          Expanded(child: Image.network(noImageLinks)),
-          Expanded(child: Text(title)),
-          Expanded(child: Text(author)),
-        ],
+      child: Container(
+        margin: EdgeInsets.all(4),
+        color: Colors.greenAccent,
+        child: Column(
+          children: [
+            Expanded(child: Image.network(thumbnailUrl)),
+            Text(
+              title,
+              style: Theme.of(context).textTheme.overline,
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
       ),
     );
   }

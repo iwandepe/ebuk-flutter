@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 
 Future<List<Book>> fetchBookByCategory() async {
   var url = 
-      "https://www.googleapis.com/books/v1/volumes?q=harry+potter+inauthor:rowling&key=AIzaSyDq51l2xaQFgsvWiP8ubYyy-x3jYQGL-mM";
+      "https://www.googleapis.com/books/v1/volumes?q=subject:school&maxResults=40&key=AIzaSyDq51l2xaQFgsvWiP8ubYyy-x3jYQGL-mM";
   var response = await http.get(url);
 
   if (response.statusCode == 200) {
@@ -34,7 +34,6 @@ List<Book> _parseBookJson(String jsonStr) {
   return jsonList
       .map((jsonBook) => Book(
             title: jsonBook['volumeInfo']['title'],
-            author: (jsonBook['volumeInfo']['authors'] as List).join(', '),
             thumbnailUrl: jsonBook['volumeInfo']['imageLinks'] != null
                 ? jsonBook['volumeInfo']['imageLinks']['smallThumbnail']
                 : null,
