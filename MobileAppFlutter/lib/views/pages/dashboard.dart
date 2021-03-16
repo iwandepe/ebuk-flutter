@@ -1,3 +1,4 @@
+import 'package:ebuk_app/views/widgets/menu_widget.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatelessWidget {
@@ -9,30 +10,19 @@ class Dashboard extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Expanded(
-              child: InkWell(
-                child: Container(
-                  child: Text('Book Library'),
-                ),
-                onTap: () {
-                  Navigator.pushNamed(context, '/library');
-                },
-              ),
+            InkWell(
+              child: MenuWidget(content: 'Books Library',),
+              onTap: () {
+                Navigator.pushNamed(context, '/library');
+              },
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.1,
-            ),
-            Expanded(
-              child: InkWell(
-                child: Container(
-                  child: Text('Book Store'),
-                ),
-                onTap: () {
-                  Navigator.pushNamed(context, '/store');
-                },
-              ),
+            InkWell(
+              child: MenuWidget(content: 'Books Store'),
+              onTap: () {
+                Navigator.pushNamed(context, '/store');
+              },
             ),
           ],
         ),
