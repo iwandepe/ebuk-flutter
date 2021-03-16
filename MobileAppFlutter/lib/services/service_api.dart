@@ -4,9 +4,9 @@ import 'package:ebuk_app/models/book.dart';
 import 'package:ebuk_app/models/book_detail.dart';
 import 'package:http/http.dart' as http;
 
-Future<List<Book>> fetchBookByCategory() async {
+Future<List<Book>> fetchBookByCategory(String category) async {
   var url =
-      "https://www.googleapis.com/books/v1/volumes?q=subject:school&maxResults=40&key=AIzaSyDq51l2xaQFgsvWiP8ubYyy-x3jYQGL-mM";
+      "https://www.googleapis.com/books/v1/volumes?q=subject:${category}&maxResults=40&key=AIzaSyDq51l2xaQFgsvWiP8ubYyy-x3jYQGL-mM";
   var response = await http.get(url);
 
   if (response.statusCode == 200) {

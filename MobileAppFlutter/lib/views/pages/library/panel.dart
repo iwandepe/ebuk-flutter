@@ -5,10 +5,14 @@ import 'package:ebuk_app/views/widgets/book_grid_tile.dart';
 import 'package:flutter/material.dart';
 
 class Panel extends StatelessWidget {
+  final String category;
+
+  Panel({this.category});
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<List<Book>>(
-      future: fetchBookByCategory(),
+      future: fetchBookByCategory(category),
       builder: (context, snapshot) {
         if (!snapshot.hasData)
           return Center(child: CircularProgressIndicator());
