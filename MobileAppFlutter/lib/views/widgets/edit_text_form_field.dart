@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class EditTextFormField extends StatelessWidget {
+class EditTextFormField extends StatefulWidget {
   final String labelText;
   final String errorText;
   final String initialValue;
@@ -14,12 +14,17 @@ class EditTextFormField extends StatelessWidget {
   });
 
   @override
+  _EditTextFormFieldState createState() => _EditTextFormFieldState();
+}
+
+class _EditTextFormFieldState extends State<EditTextFormField> {
+  @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: controller..text = initialValue,
+      controller: widget.controller..text = widget.initialValue,
       style: Theme.of(context).textTheme.bodyText1,
       decoration: InputDecoration(
-        labelText: labelText,
+        labelText: widget.labelText,
       ),
     );
   }

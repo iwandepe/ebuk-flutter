@@ -15,7 +15,6 @@ Future<List<BookSell>> fetchBookSellByCategory() async {
 }
 
 List<BookSell> _parseBookSellJson(String jsonStr) {
-  print(jsonStr);
   final jsonMap = jsonDecode(jsonStr);
   final jsonList = jsonMap as List;
   return jsonList
@@ -59,10 +58,43 @@ Future<String> createBookJson(
   );
 
   if (response.statusCode == 200) {
-    print(response.body);
     return response.body;
   } else if (response.statusCode == 201) {
-    print('201');
+    return response.body;
+  } else {
+    throw Exception('Error: ${response.statusCode}');
+  }
+}
+
+Future<String> addBook(
+  int id,
+  String title,
+  String author,
+  String category,
+  String price,
+  String linkToImage,
+  String description,
+) async {
+  var url = 'http://iwandepee.000webhostapp.com/ebuk/api/add.php';
+  final response = await http.post(
+    url,
+    headers: {"content-type": "application/json"},
+    body: jsonEncode(
+      <String, String>{
+        'submit': 'true',
+        'title': title,
+        'author': author,
+        'category': category,
+        'price': price,
+        'linkToImage': linkToImage,
+        'description': description,
+      },
+    ),
+  );
+
+  if (response.statusCode == 200) {
+    return response.body;
+  } else if (response.statusCode == 201) {
     return response.body;
   } else {
     throw Exception('Error: ${response.statusCode}');
