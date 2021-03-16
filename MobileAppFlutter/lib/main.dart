@@ -2,6 +2,8 @@ import 'package:ebuk_app/views/pages/dashboard.dart';
 import 'package:ebuk_app/views/pages/library/detail.dart';
 import 'package:ebuk_app/views/pages/library/library.dart';
 import 'package:ebuk_app/views/pages/store/edit.dart';
+import 'package:ebuk_app/views/pages/store/store_detail.dart';
+import 'package:ebuk_app/views/pages/store/store_library.dart';
 import 'package:flutter/material.dart';
 
 import 'package:ebuk_app/views/pages/register.dart';
@@ -26,7 +28,7 @@ class EbukApp extends StatelessWidget {
         '/login': (context) => Login(),
         '/register': (context) => Register(),
         '/library': (context) => Library(),
-        '/detail' : (context) => BookDetailPage(),
+        '/store' : (context) => StoreLibrary(),
         '/edit' : (context) => EditPage(),
       },
       home: Login(),

@@ -1,4 +1,5 @@
 import 'package:ebuk_app/res/string.dart';
+import 'package:ebuk_app/views/pages/library/detail.dart';
 import 'package:flutter/material.dart';
 
 class BookGridTile extends StatelessWidget {
@@ -13,7 +14,10 @@ class BookGridTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, '/detail');
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => BookDetailPage()),
+        );
       },
       child: Column(
         children: [

@@ -1,3 +1,4 @@
+import 'package:ebuk_app/views/pages/store/panel.dart';
 import 'package:flutter/material.dart';
 
 class StoreLibrary extends StatefulWidget {
@@ -11,8 +12,15 @@ class _StoreLibraryState extends State<StoreLibrary> {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        appBar: AppBar(title: Text('Book Store')),
-        body: Text("dumb"),
+        appBar: AppBar(
+          title: Text('Books Store'),
+          bottom: TabBar(
+            tabs: [Text('1'), Text('2'), Text('3')],
+          ),
+        ),
+        body: TabBarView(
+          children: [Panel(), Panel(), Panel()],
+        ),
       ),
     );
   }

@@ -30,7 +30,7 @@ class Dashboard extends StatelessWidget {
                   child: Text('Book Store'),
                 ),
                 onTap: () {
-                  Navigator.pushNamed(context, '/edit');
+                  Navigator.pushNamed(context, '/store');
                 },
               ),
             ),
