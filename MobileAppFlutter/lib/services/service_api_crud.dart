@@ -39,20 +39,32 @@ Future<String> createBookJson(
   String price,
   String linkToImage,
   String description,
-  ) async {
+) async {
+  var url = 'http://iwandepee.000webhostapp.com/ebuk/api/edit.php';
   final response = await http.post(
-    Uri.https('jsonplaceholder.typicode.com', 'albums'),
-    headers: <String, String>{
-      'Content-Type': 'application/json; charset=UTF-8',
-    },
-    body: jsonEncode(<String, String>{
-      'title': title,
-    }),
+    url,
+    headers: {"content-type": "application/json"},
+    body: jsonEncode(
+      <String, String>{
+        'submit': 'true',
+        'id': '3',
+        'title': title,
+        'author': author,
+        'category': category,
+        'price': price,
+        'linkToImage': linkToImage,
+        'description': description,
+      },
+    ),
   );
 
-  if (response.statusCode == 201) {
+  if (response.statusCode == 200) {
+    print(response.body);
+    return response.body;
+  } else if (response.statusCode == 201) {
+    print('201');
     return response.body;
   } else {
-    throw Exception('Failed to post data');
+    throw Exception('Error: ${response.statusCode}');
   }
 }
