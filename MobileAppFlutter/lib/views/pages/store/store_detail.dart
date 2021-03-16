@@ -19,22 +19,66 @@ class DetailSell extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => EditPage(bookSell: bookSell)),
+                MaterialPageRoute(
+                    builder: (context) => EditPage(bookSell: bookSell)),
               );
             },
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Expanded(child: Image.network(noImageLinks)),
-          Expanded(child: Text(bookSell.title)),
-          Expanded(child: Text(bookSell.author)),
-          Expanded(child: Text(bookSell.category)),
-          Expanded(child: Text(bookSell.price)),
-          Expanded(child: Text(bookSell.linkToImage)),
-          Expanded(child: Text(bookSell.description)),
-        ],
+      body: Center(
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.9,
+          child: Column(
+            children: [
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.4,
+                child: Image.network(noImageLinks),
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  bookSell.title,
+                  style: Theme.of(context).textTheme.headline2,
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'author    : ${bookSell.author}',
+                  style: Theme.of(context).textTheme.overline,
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'category : ${bookSell.category}',
+                  style: Theme.of(context).textTheme.overline,
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'price      : ${bookSell.price}',
+                  style: Theme.of(context).textTheme.overline,
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              SizedBox(height: 10),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  bookSell.description,
+                  style: Theme.of(context).textTheme.subtitle1,
+                  textAlign: TextAlign.left,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
