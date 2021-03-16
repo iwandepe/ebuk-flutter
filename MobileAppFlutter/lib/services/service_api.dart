@@ -5,7 +5,7 @@ import 'package:ebuk_app/models/book_detail.dart';
 import 'package:http/http.dart' as http;
 
 Future<List<Book>> fetchBookByCategory() async {
-  var url = 
+  var url =
       "https://www.googleapis.com/books/v1/volumes?q=subject:school&maxResults=40&key=AIzaSyDq51l2xaQFgsvWiP8ubYyy-x3jYQGL-mM";
   var response = await http.get(url);
 
@@ -16,9 +16,10 @@ Future<List<Book>> fetchBookByCategory() async {
   }
 }
 
-Future<BookDetail> fetchBookById() async {
-  var url = 
-      "https://www.googleapis.com/books/v1/volumes/zyTCAlFPjgYC?key=AIzaSyDq51l2xaQFgsvWiP8ubYyy-x3jYQGL-mM";
+Future<BookDetail> fetchBookById(String selfLink) async {
+  var url = selfLink != null
+      ? selfLink
+      : 'https://www.googleapis.com/books/v1/volumes/Y3rAZA8QjEAC';
   var response = await http.get(url);
 
   if (response.statusCode == 200) {
@@ -34,6 +35,7 @@ List<Book> _parseBookJson(String jsonStr) {
   return jsonList
       .map((jsonBook) => Book(
             title: jsonBook['volumeInfo']['title'],
+            selfLink: jsonBook['selfLink'],
             thumbnailUrl: jsonBook['volumeInfo']['imageLinks'] != null
                 ? jsonBook['volumeInfo']['imageLinks']['smallThumbnail']
                 : null,
@@ -46,10 +48,14 @@ BookDetail _parseBookDetailJson(String jsonStr) {
   final jsonBookDetail = jsonMap['volumeInfo'];
   return BookDetail(
       title: jsonBookDetail['title'],
-      author: (jsonBookDetail['authors'] as List).join(', '),
+      author: (jsonBookDetail['authors'] as List) != null
+          ? (jsonBookDetail['authors'] as List).join(', ')
+          : '',
       subtitle: jsonBookDetail['subtitle'],
-      averageRating: jsonBookDetail['averageRating'],
-      category: (jsonBookDetail['categories'] as List).join(', '),
+      averageRating: jsonBookDetail['averageRating'].toString(),
+      category: (jsonBookDetail['categories'] as List) != null
+          ? (jsonBookDetail['categories'] as List).join(', ')
+          : '',
       description: jsonBookDetail['description'],
       imageUrl: jsonBookDetail['imageLinks'] != null
           ? jsonBookDetail['imageLinks']['small']

@@ -8,7 +8,7 @@ class BookDetail {
   final String publishedDate;
   final String description;
   final String category;
-  final double averageRating;
+  final String averageRating;
   final String imageUrl;
 
   BookDetail(

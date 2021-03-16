@@ -19,6 +19,7 @@ class Panel extends StatelessWidget {
           children: snapshot.data
               .map((data) => BookGridTile(
                     title: data.title,
+                    selfLink: data.selfLink,
                     thumbnailUrl: data.thumbnailUrl != null
                         ? data.thumbnailUrl
                         : noImageLinks,

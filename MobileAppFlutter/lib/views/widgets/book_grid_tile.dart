@@ -4,10 +4,11 @@ import 'package:flutter/material.dart';
 
 class BookGridTile extends StatelessWidget {
   final String title;
+  final String selfLink;
   final String thumbnailUrl;
 
   BookGridTile(
-      {@required this.title, this.thumbnailUrl});
+      {@required this.title,  @required this.selfLink, this.thumbnailUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class BookGridTile extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => BookDetailPage()),
+          MaterialPageRoute(builder: (context) => BookDetailPage(selfLink: selfLink)),
         );
       },
       child: Container(

@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:ebuk_app/services/service_api.dart';
 
 class BookDetailPage extends StatefulWidget {
+  final String selfLink;
+
+  BookDetailPage({this.selfLink});
+
   @override
   _BookDetailPageState createState() => _BookDetailPageState();
 }
@@ -14,7 +18,7 @@ class _BookDetailPageState extends State<BookDetailPage> {
   @override
   void initState() {
     super.initState();
-    bookDetail = fetchBookById();
+    bookDetail = fetchBookById(widget.selfLink);
   }
 
   @override
