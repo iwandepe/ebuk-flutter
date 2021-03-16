@@ -13,17 +13,26 @@ class EditPage extends StatefulWidget {
 }
 
 class _EditPageState extends State<EditPage> {
-  TextEditingController _titleController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
-  TextEditingController _authorController = TextEditingController();
+  TextEditingController _titleController;
+  TextEditingController _authorController;
+  TextEditingController _categoryController;
+  TextEditingController _priceController;
+  TextEditingController _linkToImageController;
+  TextEditingController _descriptionController;
 
-  TextEditingController _categoryController = TextEditingController();
-
-  TextEditingController _priceController = TextEditingController();
-
-  TextEditingController _linkToImageController = TextEditingController();
-
-  TextEditingController _descriptionController = TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    _titleController = TextEditingController(text: widget.bookSell.title);
+    _authorController = TextEditingController(text: widget.bookSell.author);
+    _categoryController = TextEditingController(text: widget.bookSell.category);
+    _priceController = TextEditingController(text: widget.bookSell.price);
+    _linkToImageController = TextEditingController(text: widget.bookSell.linkToImage);
+    _descriptionController = TextEditingController(text: widget.bookSell.description);
+  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -58,45 +67,48 @@ class _EditPageState extends State<EditPage> {
       body: Center(
         child: Container(
           width: MediaQuery.of(context).size.width * 0.9,
-          child: Column(
-            children: [
-              EditTextFormField(
-                initialValue: widget.bookSell.title,
-                errorText: 'Title cannot be null',
-                labelText: 'Title',
-                controller: _titleController,
-              ),
-              EditTextFormField(
-                initialValue: widget.bookSell.author,
-                errorText: 'Author cannot be null',
-                labelText: 'Author',
-                controller: _authorController,
-              ),
-              EditTextFormField(
-                initialValue: widget.bookSell.category,
-                errorText: 'Category cannot be null',
-                labelText: 'Category',
-                controller: _categoryController,
-              ),
-              EditTextFormField(
-                initialValue: widget.bookSell.price,
-                errorText: 'Price cannot be null',
-                labelText: 'Price',
-                controller: _priceController,
-              ),
-              EditTextFormField(
-                initialValue: widget.bookSell.linkToImage,
-                errorText: 'Link to image cannot be null',
-                labelText: 'Link to image',
-                controller: _linkToImageController,
-              ),
-              EditTextFormField(
-                initialValue: widget.bookSell.description,
-                errorText: 'Description cannot be null',
-                labelText: 'Description',
-                controller: _descriptionController,
-              ),
-            ],
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                EditTextFormField(
+                  initialValue: widget.bookSell.title,
+                  errorText: 'Title cannot be null',
+                  labelText: 'Title',
+                  controller: _titleController,
+                ),
+                EditTextFormField(
+                  initialValue: widget.bookSell.author,
+                  errorText: 'Author cannot be null',
+                  labelText: 'Author',
+                  controller: _authorController,
+                ),
+                EditTextFormField(
+                  initialValue: widget.bookSell.category,
+                  errorText: 'Category cannot be null',
+                  labelText: 'Category',
+                  controller: _categoryController,
+                ),
+                EditTextFormField(
+                  initialValue: widget.bookSell.price,
+                  errorText: 'Price cannot be null',
+                  labelText: 'Price',
+                  controller: _priceController,
+                ),
+                EditTextFormField(
+                  initialValue: widget.bookSell.linkToImage,
+                  errorText: 'Link to image cannot be null',
+                  labelText: 'Link to image',
+                  controller: _linkToImageController,
+                ),
+                EditTextFormField(
+                  initialValue: widget.bookSell.description,
+                  errorText: 'Description cannot be null',
+                  labelText: 'Description',
+                  controller: _descriptionController,
+                ),
+              ],
+            ),
           ),
         ),
       ),

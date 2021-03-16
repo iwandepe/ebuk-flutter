@@ -1,4 +1,5 @@
 import 'package:ebuk_app/models/book_sell.dart';
+import 'package:ebuk_app/services/service_api_crud.dart';
 import 'package:ebuk_app/views/pages/store/edit.dart';
 import 'package:flutter/material.dart';
 import 'package:ebuk_app/res/string.dart';
@@ -25,6 +26,14 @@ class DetailSell extends StatelessWidget {
             },
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.delete),
+        onPressed: () {
+          Future.delayed(Duration.zero, () async {
+            deleteBook(bookSell.id).then((value) => Navigator.pop(context));
+          });
+        },
       ),
       body: Center(
         child: Container(

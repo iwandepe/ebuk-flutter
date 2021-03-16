@@ -58,6 +58,7 @@ Future<String> createBookJson(
   );
 
   if (response.statusCode == 200) {
+    print('edit 200');
     return response.body;
   } else if (response.statusCode == 201) {
     return response.body;
@@ -95,6 +96,22 @@ Future<String> addBook(
   if (response.statusCode == 200) {
     return response.body;
   } else if (response.statusCode == 201) {
+    return response.body;
+  } else {
+    throw Exception('Error: ${response.statusCode}');
+  }
+}
+
+Future<String> deleteBook(int id) async {
+  final url = 'http://iwandepee.000webhostapp.com/ebuk/api/delete.php';
+  final response = await http.post(
+    url,
+    body: jsonEncode(
+      <String, String>{'id': '$id'},
+    ),
+  );
+
+  if (response.statusCode == 200) {
     return response.body;
   } else {
     throw Exception('Error: ${response.statusCode}');

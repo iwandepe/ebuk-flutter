@@ -9,16 +9,13 @@ class AddPage extends StatefulWidget {
 }
 
 class _AddPageState extends State<AddPage> {
+  final _formKey = GlobalKey<FormState>();
+  
   TextEditingController _titleController = TextEditingController();
-
   TextEditingController _authorController = TextEditingController();
-
   TextEditingController _categoryController = TextEditingController();
-
   TextEditingController _priceController = TextEditingController();
-
   TextEditingController _linkToImageController = TextEditingController();
-
   TextEditingController _descriptionController = TextEditingController();
 
   @override
@@ -54,45 +51,48 @@ class _AddPageState extends State<AddPage> {
       body: Center(
         child: Container(
           width: MediaQuery.of(context).size.width * 0.9,
-          child: Column(
-            children: [
-              EditTextFormField(
-                initialValue: '',
-                errorText: 'Title cannot be null',
-                labelText: 'Title',
-                controller: _titleController,
-              ),
-              EditTextFormField(
-                initialValue: '',
-                errorText: 'Author cannot be null',
-                labelText: 'Author',
-                controller: _authorController,
-              ),
-              EditTextFormField(
-                initialValue: '',
-                errorText: 'Category cannot be null',
-                labelText: 'Category',
-                controller: _categoryController,
-              ),
-              EditTextFormField(
-                initialValue: '',
-                errorText: 'Price cannot be null',
-                labelText: 'Price',
-                controller: _priceController,
-              ),
-              EditTextFormField(
-                initialValue: '',
-                errorText: 'Link to image cannot be null',
-                labelText: 'Link to image',
-                controller: _linkToImageController,
-              ),
-              EditTextFormField(
-                initialValue: '',
-                errorText: 'Description cannot be null',
-                labelText: 'Description',
-                controller: _descriptionController,
-              ),
-            ],
+          child: Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                EditTextFormField(
+                  initialValue: '',
+                  errorText: 'Title cannot be null',
+                  labelText: 'Title',
+                  controller: _titleController,
+                ),
+                EditTextFormField(
+                  initialValue: '',
+                  errorText: 'Author cannot be null',
+                  labelText: 'Author',
+                  controller: _authorController,
+                ),
+                EditTextFormField(
+                  initialValue: '',
+                  errorText: 'Category cannot be null',
+                  labelText: 'Category',
+                  controller: _categoryController,
+                ),
+                EditTextFormField(
+                  initialValue: '',
+                  errorText: 'Price cannot be null',
+                  labelText: 'Price',
+                  controller: _priceController,
+                ),
+                EditTextFormField(
+                  initialValue: '',
+                  errorText: 'Link to image cannot be null',
+                  labelText: 'Link to image',
+                  controller: _linkToImageController,
+                ),
+                EditTextFormField(
+                  initialValue: '',
+                  errorText: 'Description cannot be null',
+                  labelText: 'Description',
+                  controller: _descriptionController,
+                ),
+              ],
+            ),
           ),
         ),
       ),

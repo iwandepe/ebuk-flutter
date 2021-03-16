@@ -21,7 +21,7 @@ class _EditTextFormFieldState extends State<EditTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: widget.controller..text = widget.initialValue,
+      controller: widget.controller,
       style: Theme.of(context).textTheme.bodyText1,
       decoration: InputDecoration(
         labelText: widget.labelText,
