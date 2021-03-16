@@ -4,8 +4,6 @@ import 'package:ebuk_app/models/book.dart';
 import 'package:ebuk_app/models/book_detail.dart';
 import 'package:http/http.dart' as http;
 
-String _apiKey = "AIzaSyDq51l2xaQFgsvWiP8ubYyy-x3jYQGL-mM";
-
 Future<List<Book>> fetchBookByCategory() async {
   var url = 
       "https://www.googleapis.com/books/v1/volumes?q=harry+potter+inauthor:rowling&key=AIzaSyDq51l2xaQFgsvWiP8ubYyy-x3jYQGL-mM";

@@ -2,8 +2,6 @@ import 'package:ebuk_app/models/book_detail.dart';
 import 'package:ebuk_app/res/string.dart';
 import 'package:flutter/material.dart';
 import 'package:ebuk_app/services/service_api.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 
 class BookDetailPage extends StatefulWidget {
   @override

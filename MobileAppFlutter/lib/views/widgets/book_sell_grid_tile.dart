@@ -1,4 +1,5 @@
 import 'package:ebuk_app/models/book_sell.dart';
+import 'package:ebuk_app/res/string.dart';
 import 'package:ebuk_app/views/pages/store/store_detail.dart';
 import 'package:flutter/material.dart';
 
@@ -13,18 +14,28 @@ class BookSellGridTile extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => DetailSell(bookSell: bookSell)),
+          MaterialPageRoute(
+              builder: (context) => DetailSell(bookSell: bookSell)),
         );
       },
-      child: Column(
-        children: [
-          Expanded(child: Text(bookSell.title)),
-          Expanded(child: Text(bookSell.author)),
-          Expanded(child: Text(bookSell.category)),
-          Expanded(child: Text(bookSell.price)),
-          Expanded(child: Text(bookSell.linkToImage)),
-          Expanded(child: Text(bookSell.description)),
-        ],
+      child: Container(
+        margin: EdgeInsets.all(3),
+        color: Colors.greenAccent,
+        child: AspectRatio(
+          aspectRatio: 0.5,
+          child: Column(
+            children: [
+              Expanded(child: Image.network(noImageLinks)),
+              Container(
+                margin: EdgeInsets.only(top: 10, bottom: 5),
+                child: Text(
+                  bookSell.title,
+                  style: Theme.of(context).textTheme.subtitle2,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
