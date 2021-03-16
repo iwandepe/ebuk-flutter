@@ -30,3 +30,29 @@ List<BookSell> _parseBookSellJson(String jsonStr) {
           ))
       .toList();
 }
+
+Future<String> createBookJson(
+  int id,
+  String title,
+  String author,
+  String category,
+  String price,
+  String linkToImage,
+  String description,
+  ) async {
+  final response = await http.post(
+    Uri.https('jsonplaceholder.typicode.com', 'albums'),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, String>{
+      'title': title,
+    }),
+  );
+
+  if (response.statusCode == 201) {
+    return response.body;
+  } else {
+    throw Exception('Failed to post data');
+  }
+}

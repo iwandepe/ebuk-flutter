@@ -1,4 +1,5 @@
 import 'package:ebuk_app/models/book_sell.dart';
+import 'package:ebuk_app/views/pages/store/edit.dart';
 import 'package:flutter/material.dart';
 import 'package:ebuk_app/res/string.dart';
 
@@ -10,7 +11,20 @@ class DetailSell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Book Detail')),
+      appBar: AppBar(
+        title: Text('Book Detail'),
+        actions: [
+          FlatButton(
+            child: Text('Edit'),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => EditPage(bookSell: bookSell)),
+              );
+            },
+          ),
+        ],
+      ),
       body: Column(
         children: [
           Expanded(child: Image.network(noImageLinks)),
