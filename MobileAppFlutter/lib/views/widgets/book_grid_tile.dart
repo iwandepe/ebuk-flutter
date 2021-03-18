@@ -1,4 +1,3 @@
-import 'package:ebuk_app/res/string.dart';
 import 'package:ebuk_app/views/pages/library/detail.dart';
 import 'package:flutter/material.dart';
 

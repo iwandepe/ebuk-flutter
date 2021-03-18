@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:ebuk_app/models/book_sell.dart';
 import 'package:http/http.dart' as http;
 
-Future<List<BookSell>> fetchBookSellByCategory() async {
-  var url = "http://iwandepee.000webhostapp.com/ebuk/api/show.php";
+Future<List<BookSell>> fetchBookSellByCategory(String category) async {
+  var url = "http://iwandepee.000webhostapp.com/ebuk/api/show.php?category=${category}";
   var response = await http.get(url);
 
   if (response.statusCode == 200) {

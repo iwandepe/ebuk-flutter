@@ -23,7 +23,7 @@ class BookSellGridTile extends StatelessWidget {
         color: Colors.greenAccent,
         child: Column(
           children: [
-            Expanded(child: Image.network(noImageLinks)),
+            Expanded(child: Image.network(bookSell.linkToImage)),
             Container(
               margin: EdgeInsets.only(top: 10, bottom: 5),
               child: Text(
