@@ -7,7 +7,7 @@ class BookGridTile extends StatelessWidget {
   final String thumbnailUrl;
 
   BookGridTile(
-      {@required this.title,  @required this.selfLink, this.thumbnailUrl});
+      {@required this.title, @required this.selfLink, this.thumbnailUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -15,15 +15,24 @@ class BookGridTile extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => BookDetailPage(selfLink: selfLink)),
+          MaterialPageRoute(
+              builder: (context) => BookDetailPage(selfLink: selfLink)),
         );
       },
       child: Container(
         margin: EdgeInsets.all(4),
-        color: Colors.greenAccent,
+        color: Color(0xFFE5E5E5),
         child: Column(
           children: [
-            Expanded(child: Image.network(thumbnailUrl)),
+            Expanded(
+              child: AspectRatio(
+                aspectRatio: 0.6,
+                child: Image.network(
+                  thumbnailUrl,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
             Text(
               title,
               style: Theme.of(context).textTheme.overline,
