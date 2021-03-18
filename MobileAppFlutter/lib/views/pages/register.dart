@@ -1,3 +1,4 @@
+import 'package:ebuk_app/services/authentication_service.dart';
 import 'package:flutter/material.dart';
 import 'package:ebuk_app/views/widgets/auth_text_form_field.dart';
 
@@ -7,6 +8,12 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  final _formKey = GlobalKey<FormState>();
+
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  TextEditingController _nameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,16 +42,19 @@ class _RegisterState extends State<Register> {
                   AuthTextFormField(
                     labelText: "Name",
                     errorText: "Name cannot be empty",
+                    controller: _nameController,
                   ),
                   SizedBox(height: 1),
                   AuthTextFormField(
                     labelText: "Email",
                     errorText: "Email cannot be empty",
+                    controller: _emailController,
                   ),
                   SizedBox(height: 1),
                   AuthTextFormField(
                     labelText: "Password",
                     errorText: "Password cannot be empty",
+                    controller: _passwordController,
                   ),
                 ],
               ),
@@ -59,7 +69,7 @@ class _RegisterState extends State<Register> {
                 style: Theme.of(context).textTheme.button,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, '/login');
+                signup(context, _nameController.text, _emailController.text, _passwordController.text);
               },
             ),
 

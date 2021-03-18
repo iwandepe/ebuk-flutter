@@ -1,3 +1,4 @@
+import 'package:ebuk_app/services/authentication_service.dart';
 import 'package:flutter/material.dart';
 import 'package:ebuk_app/views/widgets/auth_text_form_field.dart';
 
@@ -7,10 +8,14 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final _formKey = GlobalKey<FormState>();
+
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Scroll View to prevent bottom overflow when the keyboard comes out
       resizeToAvoidBottomInset: false,
       body: Container(
         height: double.infinity,
@@ -35,19 +40,25 @@ class _LoginState extends State<Login> {
                       style: Theme.of(context).textTheme.headline4,
                     ),
 
+                    // Form(
+                    //   key: _formKey,
+                    //   child:
                     Column(
                       children: [
                         AuthTextFormField(
                           labelText: "Email",
                           errorText: "Email cannot be empty",
+                          controller: _emailController,
                         ),
                         SizedBox(height: 1),
                         AuthTextFormField(
                           labelText: "Password",
                           errorText: "Password cannot be empty",
+                          controller: _passwordController,
                         ),
                       ],
                     ),
+                    // ),
 
                     FlatButton(
                       height: 50,
@@ -58,7 +69,7 @@ class _LoginState extends State<Login> {
                         style: Theme.of(context).textTheme.button,
                       ),
                       onPressed: () {
-                        Navigator.pushNamed(context, '/dashboard');
+                        login(context, _emailController.text, _passwordController.text);
                       },
                     ),
                   ],
