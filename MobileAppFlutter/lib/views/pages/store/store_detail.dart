@@ -35,57 +35,60 @@ class DetailSell extends StatelessWidget {
           });
         },
       ),
-      body: Center(
-        child: Container(
-          width: MediaQuery.of(context).size.width * 0.9,
-          child: Column(
-            children: [
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.4,
-                child: Image.network(noImageLinks),
-              ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  bookSell.title,
-                  style: Theme.of(context).textTheme.headline2,
-                  textAlign: TextAlign.left,
+      body: SingleChildScrollView(
+        child: Center(
+          child: Container(
+            width: MediaQuery.of(context).size.width * 0.9,
+            child: Column(
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.4,
+                  child: Image.network(bookSell.linkToImage),
                 ),
-              ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'author    : ${bookSell.author}',
-                  style: Theme.of(context).textTheme.overline,
-                  textAlign: TextAlign.left,
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    bookSell.title,
+                    style: Theme.of(context).textTheme.headline4,
+                    textAlign: TextAlign.left,
+                  ),
                 ),
-              ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'category : ${bookSell.category}',
-                  style: Theme.of(context).textTheme.overline,
-                  textAlign: TextAlign.left,
+                SizedBox(height: 10),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'author    : ${bookSell.author}',
+                    style: Theme.of(context).textTheme.overline,
+                    textAlign: TextAlign.left,
+                  ),
                 ),
-              ),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'price      : ${bookSell.price}',
-                  style: Theme.of(context).textTheme.overline,
-                  textAlign: TextAlign.left,
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'category : ${bookSell.category}',
+                    style: Theme.of(context).textTheme.overline,
+                    textAlign: TextAlign.left,
+                  ),
                 ),
-              ),
-              SizedBox(height: 10),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  bookSell.description,
-                  style: Theme.of(context).textTheme.subtitle1,
-                  textAlign: TextAlign.left,
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'price      : ${bookSell.price}',
+                    style: Theme.of(context).textTheme.overline,
+                    textAlign: TextAlign.left,
+                  ),
                 ),
-              ),
-            ],
+                SizedBox(height: 10),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    bookSell.description,
+                    style: Theme.of(context).textTheme.subtitle1,
+                    textAlign: TextAlign.left,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
