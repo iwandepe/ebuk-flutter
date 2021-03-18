@@ -53,19 +53,6 @@ class _AddPageState extends State<AddPage> {
     }).catchError((error) {
       print("error");
     });
-    // var stream = http.ByteStream(DelegatingStream.typed(tmpFile.openRead()));
-    // var length = await tmpFile.length();
-    // var request = new http.MultipartRequest("POST", Uri.parse(uploadEndPoint));
-    // request.fields['name'] = fileName;
-    // request.files.add(await http.MultipartFile(
-    //     'picture',
-    //     stream,
-    //     length,
-    //     filename: fileName
-    // ));
-    // request.send().then((response) {
-    //   if (response.statusCode == 200) print(response);
-    // });
   }
 
   Widget showImage() {

@@ -46,7 +46,7 @@ Future<String> createBookJson(
     body: jsonEncode(
       <String, String>{
         'submit': 'true',
-        'id': '3',
+        'id': id.toString(),
         'title': title,
         'author': author,
         'category': category,
@@ -58,7 +58,7 @@ Future<String> createBookJson(
   );
 
   if (response.statusCode == 200) {
-    print('edit 200');
+    print(response.body);
     return response.body;
   } else if (response.statusCode == 201) {
     return response.body;
