@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ebuk_app/services/service_api_crud.dart';
 import 'package:ebuk_app/views/widgets/edit_text_form_field.dart';
 import 'package:image_picker/image_picker.dart';
-
-import 'package:async/async.dart';
 import 'dart:io';
 import 'package:http/http.dart' as http;
 import 'dart:convert';

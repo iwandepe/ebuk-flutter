@@ -1,5 +1,4 @@
 import 'package:ebuk_app/models/book_sell.dart';
-import 'package:ebuk_app/res/string.dart';
 import 'package:ebuk_app/views/pages/store/store_detail.dart';
 import 'package:flutter/material.dart';
 

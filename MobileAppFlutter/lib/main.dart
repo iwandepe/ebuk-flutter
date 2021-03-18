@@ -1,5 +1,6 @@
 import 'package:ebuk_app/views/pages/dashboard.dart';
 import 'package:ebuk_app/views/pages/library/library.dart';
+import 'package:ebuk_app/views/pages/profil.dart';
 import 'package:ebuk_app/views/pages/store/edit.dart';
 import 'package:ebuk_app/views/pages/store/store_library.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,7 @@ class EbukApp extends StatelessWidget {
         '/library': (context) => Library(),
         '/store' : (context) => StoreLibrary(),
         '/edit' : (context) => EditPage(),
+        '/profil' : (context) => ProfilPage(),
       },
       home: Login(),
       debugShowCheckedModeBanner: false,

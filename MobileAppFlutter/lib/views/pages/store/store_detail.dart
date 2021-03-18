@@ -2,7 +2,6 @@ import 'package:ebuk_app/models/book_sell.dart';
 import 'package:ebuk_app/services/service_api_crud.dart';
 import 'package:ebuk_app/views/pages/store/edit.dart';
 import 'package:flutter/material.dart';
-import 'package:ebuk_app/res/string.dart';
 
 class DetailSell extends StatelessWidget {
   final BookSell bookSell;

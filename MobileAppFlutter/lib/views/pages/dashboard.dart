@@ -1,9 +1,12 @@
+import 'package:ebuk_app/models/profile_args.dart';
 import 'package:ebuk_app/views/widgets/menu_widget.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final ProfileArguments args = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Dashboard'),
@@ -13,7 +16,9 @@ class Dashboard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             InkWell(
-              child: MenuWidget(content: 'Books Library',),
+              child: MenuWidget(
+                content: 'Books Library',
+              ),
               onTap: () {
                 Navigator.pushNamed(context, '/library');
               },
@@ -24,6 +29,19 @@ class Dashboard extends StatelessWidget {
                 Navigator.pushNamed(context, '/store');
               },
             ),
+            InkWell(
+              child: MenuWidget(content: 'Your Profil'),
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  '/profil',
+                  arguments: ProfileArguments(
+                    email: args.email,
+                    password: args.password,
+                  ),
+                );
+              },
+            )
           ],
         ),
       ),
