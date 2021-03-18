@@ -20,8 +20,8 @@ class _AddPageState extends State<AddPage> {
   TextEditingController _authorController = TextEditingController();
   TextEditingController _categoryController = TextEditingController();
   TextEditingController _priceController = TextEditingController();
-  TextEditingController _linkToImageController = TextEditingController();
   TextEditingController _descriptionController = TextEditingController();
+  var linkToImage = '';
 
   static final String uploadEndPoint =
       'http://iwandepee.000webhostapp.com/ebuk/api/upload_image.php';
@@ -41,6 +41,8 @@ class _AddPageState extends State<AddPage> {
       return;
     }
     String fileName = tmpFile.path.split('/').last;
+    linkToImage = 'http://iwandepee.000webhostapp.com/ebuk/api/${fileName}';
+    print(linkToImage);
     upload(fileName);
   }
 
@@ -106,7 +108,7 @@ class _AddPageState extends State<AddPage> {
                         _authorController.text,
                         _categoryController.text,
                         _priceController.text,
-                        _linkToImageController.text,
+                        linkToImage,
                         _descriptionController.text)
                     .then((value) => Navigator.pop(context));
               });
